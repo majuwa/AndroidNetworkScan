@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import com.majuwa.androidnetworkscan.app.control.MainController;
 
 public class Calculate {
-	private ArrayList<String> ips;
-	private MainController controll;
+	private MainController control;
 
-	public Calculate(String from, String to, MainController control) {
-		this.controll = control;
+	public Calculate(String from, String to, MainController controll) {
+		this.control = controll;
 		calculateIPs(from, to);
 	}
 
@@ -31,14 +30,13 @@ public class Calculate {
 			while (k <= j) {
 				IPAddress tmp = new IPAddress(String.format("%s.%s.%s.%s",
 						fromArray[0], fromArray[1], fromArray[2], "" + k));
-				tmp.addObserver(controll.getObserver());
+				tmp.addObserver(control.getObserver());
 				AddressContainer.instance().insertAddress(tmp);
 				k++;
 
 			}
 			break;
 		case 5:
-			ips.add(from);
 			break;
 		default:
 			break;
