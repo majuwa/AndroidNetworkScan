@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.majuwa.androidnetworkscan.app.MainScreen" >
+    tools:context="com.majuwa.androidnetworkscan.app.view.MainScreen" >
     
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"

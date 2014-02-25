@@ -1,4 +1,4 @@
-package com.majuwa.androidnetworkscan.app.com.majuwa.androidnetworkscan.model;
+package com.majuwa.androidnetworkscan.app.model;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -12,18 +12,12 @@ public class Scan {
 	}
 
 	public void scan() throws UnknownHostException,IOException {
-		boolean hosts = Configuration.instance().getShowAllHosts();
 		for (IPAddress ip : container) {
 			InetAddress inet = InetAddress.getByName(ip.getHost());
-			if (inet.isReachable(5000))
+			if (inet.isReachable(500))
 				ip.setStatus(true);
 			else
-				if(hosts)
-					ip.setStatus(false);
-				else
-					container.removeAddress(ip);
-			
-			
+				ip.setStatus(false);
 		}
 	}
 }

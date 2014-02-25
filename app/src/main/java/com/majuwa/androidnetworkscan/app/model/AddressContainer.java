@@ -1,4 +1,4 @@
-package com.majuwa.androidnetworkscan.app.com.majuwa.androidnetworkscan.model;
+package com.majuwa.androidnetworkscan.app.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;

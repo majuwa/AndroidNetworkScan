@@ -1,10 +1,13 @@
-package com.majuwa.androidnetworkscan.app.com.majuwa.androidnetworkscan.model;
+package com.majuwa.androidnetworkscan.app.model;
+
+import java.util.Observable;
+
 /**
  * A class for managing IP-Objects
  * @author majuwa
  *
  */
-public class IPAddress {
+public class IPAddress extends Observable {
 	private String host;
 	private boolean reachable;
 	public IPAddress(String host){
@@ -23,6 +26,8 @@ public class IPAddress {
 	 */
 	public void setStatus(boolean reachable){
 		this.reachable = reachable;
+		setChanged();
+		notifyObservers(this);
 	}
 	/**
 	 * Shows if IP-Adress is reachable in local Network

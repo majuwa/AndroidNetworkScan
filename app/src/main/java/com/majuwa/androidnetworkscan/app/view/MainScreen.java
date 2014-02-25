@@ -1,9 +1,11 @@
-package com.majuwa.androidnetworkscan.app;
+package com.majuwa.androidnetworkscan.app.view;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.majuwa.androidnetworkscan.app.R;
 
 public class MainScreen extends Activity {
 
