@@ -1,9 +1,12 @@
 package com.majuwa.androidnetworkscan.app.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 import com.majuwa.androidnetworkscan.app.R;
 
@@ -22,6 +25,12 @@ public class MainScreen extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_screen, menu);
         return true;
+    }
+    public void scanIPs(View view){
+        Intent intent = new Intent(this,ListIPs.class);
+        intent.putExtra("from", ((EditText)findViewById(R.id.txtFrom)).getText());
+        intent.putExtra("to",((EditText)findViewById(R.id.txtTo)).getText());
+        startActivity(intent);
     }
 
     @Override

@@ -34,7 +34,8 @@ public class AddressContainer implements Iterable<IPAddress> {
 		}
 	}
 	public IPAddress[] getAll(){
-		return (IPAddress[]) list.toArray();
+        IPAddress[] tmp = new IPAddress[list.size()];
+		return list.toArray(tmp);
 	}
 	@Override
 	public Iterator<IPAddress> iterator() {
