@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.majuwa.androidnetworkscan.app.R;
 import com.majuwa.androidnetworkscan.app.model.AddressContainer;
+import com.majuwa.androidnetworkscan.app.model.Configuration;
 import com.majuwa.androidnetworkscan.app.model.IPAddress;
 
 import java.util.HashMap;
@@ -24,12 +25,31 @@ public class ListIPs extends Activity {
         setContentView(R.layout.activity_list_ips);
 
         final ListView listview = (ListView) findViewById(R.id.list);
+
         final StableArrayAdapter adapter = new StableArrayAdapter(this,
-                android.R.layout.simple_list_item_1, AddressContainer.instance().getAll());
+                android.R.layout.simple_list_item_1, checkTrue());
         listview.setAdapter(adapter);
     }
 
+    private IPAddress[] checkTrue(){
+        IPAddress[] tmp = AddressContainer.instance().getAll();
+        if(Configuration.instance().getShowAllHosts())
+            return tmp;
+        int i = 0;
+        for(IPAddress k : tmp){
+            if(k.getStatus())
+                i++;
+        }
+        IPAddress[] returnArray = new IPAddress[i];
+        i = 0;
+        for(IPAddress k:tmp){
+            if(k.getStatus())
+                returnArray[i++]=k;
+        }
+        return  returnArray;
 
+
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         

@@ -2,8 +2,14 @@
 <resources>
 
     <string name="app_name">AndroidNetworkScan</string>
-    <string name="action_settings">Settings</string>
+
     <string name="title_activity_list_ips">ListIPs</string>
+
+    <!--menu -->
+    <string name="mnAbout">About</string>
+    <string name="action_settings">Settings</string>
+
+    <!--about -->
 
 
     <!-- MainActivity -->
@@ -11,5 +17,5 @@
     <string name="lbIPFrom">From</string>
     <string name="lbIPTo">To</string>
     <string name="btScan">Scan</string>
-    <string name="btAbort">Abort</string>
+    <string name="btClear">Clear</string>
 </resources>

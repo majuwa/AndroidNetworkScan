@@ -7,7 +7,7 @@ import java.util.Observable;
  * @author majuwa
  *
  */
-public class IPAddress extends Observable {
+public class IPAddress  {
 	private String host;
 	private boolean reachable;
 	public IPAddress(String host){
@@ -26,8 +26,6 @@ public class IPAddress extends Observable {
 	 */
 	public void setStatus(boolean reachable){
 		this.reachable = reachable;
-		setChanged();
-		notifyObservers(this);
 	}
 	/**
 	 * Shows if IP-Adress is reachable in local Network

@@ -45,8 +45,9 @@
         <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btAbort"
-        android:id="@+id/btAbort" />
+        android:text="@string/btClear"
+        android:id="@+id/btClear"
+            android:onClick="clear" />
 
         <Button
             android:layout_width="wrap_content"
@@ -56,5 +57,6 @@
             android:layout_gravity="center_horizontal"
             android:onClick="scanIPs" />
     </LinearLayout>
+
 
 </LinearLayout>

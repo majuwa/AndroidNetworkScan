@@ -30,7 +30,6 @@ public class Calculate {
 			while (k <= j) {
 				IPAddress tmp = new IPAddress(String.format("%s.%s.%s.%s",
 						fromArray[0], fromArray[1], fromArray[2], "" + k));
-				tmp.addObserver(control.getObserver());
 				AddressContainer.instance().insertAddress(tmp);
 				k++;
 
