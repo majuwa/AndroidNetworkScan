@@ -3,15 +3,18 @@ package com.majuwa.androidnetworkscan.app.view;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.majuwa.androidnetworkscan.app.R;
 import com.majuwa.androidnetworkscan.app.control.MainController;
@@ -80,26 +83,44 @@ public class MainScreen extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+    private void showException(String message){
+        progress.dismiss();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Error" + message)
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                }).setTitle("Error").show();
+    }
     private class ScanIPs extends AsyncTask<Void, Void, Void> {
+        protected boolean failure = true;
         @Override
         protected Void doInBackground(Void ... voids) {
             try{
-                Log.v("test", "scanIPs");
             MainController control = new MainController();
             String from = ((EditText)findViewById(R.id.txtFrom)).getText().toString();
             String to = ((EditText)findViewById(R.id.txtTo)).getText().toString();
             control.startScan(from, to);
+                failure=false;
             }
             catch (Exception e){
-                e.printStackTrace();
-                Log.v("test", e.getMessage());
+                final String message = e.getMessage();
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        showException(message);
+                    }
+                });
+
             }
             return null;
         }
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(Void result) {
-            startNextView();
+            if(!failure)
+                startNextView();
         }
     }
 

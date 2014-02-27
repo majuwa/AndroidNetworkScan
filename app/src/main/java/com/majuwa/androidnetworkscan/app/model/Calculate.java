@@ -6,8 +6,10 @@ import com.majuwa.androidnetworkscan.app.control.MainController;
 public class Calculate {
 	private MainController control;
 
-	public Calculate(String from, String to, MainController controll) {
+	public Calculate(String from, String to, MainController controll) throws IPException {
 		this.control = controll;
+        this.testString(from);
+        this.testString(to);
 		calculateIPs(from, to);
 	}
 
@@ -42,4 +44,8 @@ public class Calculate {
 		}
 
 	}
+    private void testString(String test)throws IPException{
+        if(!test.matches("\\d\\d\\d\\.\\d\\d\\d.\\d\\d\\d.\\d\\d\\d"))
+            throw new IPException("String is not a valid IP-Address");
+    }
 }
