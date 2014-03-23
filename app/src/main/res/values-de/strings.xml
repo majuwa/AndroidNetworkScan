@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Simple Networkscanner</string>
+
+    <string name="title_activity_list_ips">ListIPs</string>
+
+    <!--menu -->
+    <string name="mnAbout">Über</string>
+    <string name="action_settings">Einstellungen</string>
+
+    <!--about -->
+
+
+    <!-- MainActivity -->
+    <string name="lbIPInsert">Bitte geben Sie den IP-Bereich ein</string>
+    <string name="lbIPFrom">von</string>
+    <string name="lbIPTo">bis</string>
+    <string name="btScan">Scan</string>
+    <string name="btClear">Löschen</string>
+</resources>
